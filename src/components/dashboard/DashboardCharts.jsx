@@ -4,6 +4,8 @@ import {
   LineChart, Line, Legend
 } from 'recharts';
 
+import './DashboardTables.css';
+
 // --- 1. Trend Chart Data ---
 const monthData = [
   { name: 'Jan', total: 4000, resolved: 2400, pending: 1600 },
@@ -144,7 +146,7 @@ export const HotspotChart = ({ filters }) => {
           </button>
         </div>
       </div>
-      <div className="chart-container">
+      <div className="chart-container" style={{ width: '100%', height: 300 }}>
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={hotspotData} layout="vertical" barCategoryGap={20}>
             <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} stroke="#e2e8f0" />

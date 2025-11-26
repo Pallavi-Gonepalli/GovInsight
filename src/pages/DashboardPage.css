@@ -52,3 +52,63 @@
 .tab-pill-group button { border: none; background: none; font-size: 0.75rem; padding: 4px 10px; border-radius: 4px; cursor: pointer; color: #64748b; }
 .tab-pill-group button.active { background: white; color: #0f172a; font-weight: 600; box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
 .card-footer-note { font-size: 0.7rem; color: #94a3b8; margin-top: 12px; text-align: center; font-style: italic; }
+
+
+/* =========================================
+   MOBILE RESPONSIVE OVERRIDES
+   ========================================= */
+
+@media (max-width: 640px) {
+  /* --- Stack Chart Headers --- */
+  .chart-header,
+  .tabs-header,
+  .table-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  /* --- Expand Controls for easier tapping --- */
+  .chart-controls,
+  .chart-toggle,
+  .tab-pill-group {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .control-pill,
+  .chart-toggle button,
+  .tab-pill-group button {
+    flex: 1; /* Make buttons equal width */
+    text-align: center;
+    padding: 8px 4px; /* Larger touch target */
+    font-size: 0.8rem;
+  }
+
+  /* --- Card Padding --- */
+.chart-card,
+  .table-card {
+    padding: 16px;
+    height: 320px;      /* explicit height for charts */
+    min-height: 320px;  /* keep same minimum */
+  }
+
+  /* --- Table Responsive --- */
+  .table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .dashboard-table {
+    min-width: 400px; /* Force horizontal scroll if needed */
+  }
+
+  .dashboard-table th,
+  .dashboard-table td {
+    padding: 10px 4px;
+    font-size: 0.8rem;
+  }
+}

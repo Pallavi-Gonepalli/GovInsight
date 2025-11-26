@@ -154,3 +154,63 @@
   50% { background: linear-gradient(90deg, #dae6fa 80%, #fafaff 100%); }
   100% { background: linear-gradient(90deg, #e4eefe 60%, #f7f7ff 100%); }
 }
+
+
+/* =========================================
+   MOBILE RESPONSIVE OVERRIDES
+   ========================================= */
+
+@media (max-width: 640px) {
+  .fake-card {
+    border-radius: 12px; /* Slightly smaller radius */
+    margin: 0 -16px; /* Full bleed if inside a padded container */
+    width: calc(100% + 32px); /* Force full width */
+    border-left: none;
+    border-right: none;
+  }
+
+  .fake-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .tab-group {
+    width: 100%;
+    display: flex;
+  }
+
+  .tab-btn {
+    flex: 1; /* Tabs take equal width */
+    text-align: center;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+
+  /* --- Table Responsive --- */
+  .fake-card-content {
+    padding: 0; /* Remove padding to let table scroll full width */
+    overflow-x: auto; /* Enable horizontal scroll */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .risk-table {
+    min-width: 500px; /* Force table to be wide enough to read */
+    margin-top: 0;
+  }
+
+  .risk-table th, .risk-table td {
+    padding: 10px 8px; /* Tighter padding */
+    font-size: 0.85rem; /* Smaller font */
+    white-space: nowrap; /* Prevent text wrapping */
+  }
+
+  /* Optional: Freeze the first column if needed, otherwise just scroll */
+
+  .table-footnote {
+    padding: 12px;
+    font-size: 0.75rem;
+  }
+}
+

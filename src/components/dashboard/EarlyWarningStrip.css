@@ -1,48 +1,142 @@
-/* --- Main Container & Grid (Keep existing) --- */
-.warning-section { margin: 32px 0; display: flex; flex-direction: column; gap: 24px; }
-.warning-grid-container { display: flex; flex-direction: column; gap: 24px; }
-.row-1 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.row-2 { display: flex; justify-content: center; gap: 24px; }
-.row-2 .warning-card { width: calc(33.33% - 16px); flex-grow: 0; }
+/* --- Main Container & Grid --- */
+.warning-section {
+  margin: 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center; /* center inner grid container */
+}
 
-/* --- Card Styling (Keep existing) --- */
+/* Centered, slightly bigger heading */
+.warning-title {
+  font-size: 28px;          /* a bit bigger */
+  font-weight: 700;
+  color: #0f172a;
+  text-align: center;
+  letter-spacing: -0.02em;
+  margin: 0 0 4px 0;
+}
+
+/* Optional small subtitle under the title */
+.warning-subtitle {
+  font-size: 0.95rem;
+  color: #64748b;
+  text-align: center;
+  margin: 0;
+}
+
+/* Grid wrapper, centered like Overview cards */
+.warning-grid-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  max-width: 1150px;        /* controls overall card width */
+  margin: 0 auto;
+}
+
+.row-1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top:30px;
+  gap: 24px;
+}
+
+/* 2nd row centered with same card width as row-1 */
+.row-2 {
+  display: flex;
+  justify-content: center;
+  margin-top:30px;
+  gap: 24px;
+}
+
+.row-2 .warning-card {
+  width: calc((100% - 48px) / 3); /* same width as row-1 items */
+  flex-grow: 0;
+}
+
+/* --- Card Styling (tuned for Overview look) --- */
 .warning-card {
   background-color: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 16px;
-  padding: 20px;
+  padding: 24px;                 /* slightly more padding */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 16px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  min-height: 160px;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.06); /* stronger shadow */
+  min-height: 180px;             /* a bit taller like Overview cards */
 }
-.warning-card:hover { transform: translateY(-6px); box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.1); border-color: #cbd5e1; }
 
-/* --- Card Top & Footer (Keep existing) --- */
-.card-top { display: flex; justify-content: space-between; align-items: flex-start; }
-.icon-wrapper { padding: 10px; border-radius: 10px; background-color: #f8fafc; color: #475569; }
-.risk-badge { font-size: 0.65rem; font-weight: 700; padding: 4px 10px; border-radius: 99px; text-transform: uppercase; }
+.warning-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 30px -10px rgba(15, 23, 42, 0.18);
+  border-color: #cbd5e1;
+}
+
+/* --- Card Top & Footer --- */
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.icon-wrapper {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #f8fafc;
+  color: #475569;
+}
+
+.risk-badge {
+  font-size: 0.7rem;  /* slightly bigger badge text */
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
 .risk-badge.high { background-color: #fef2f2; color: #ef4444; }
 .risk-badge.medium { background-color: #fff7ed; color: #f97316; }
 .risk-badge.low { background-color: #eff6ff; color: #3b82f6; }
-.card-body h4 { font-size: 1rem; font-weight: 700; color: #1e293b; margin: 0 0 8px 0; }
-.card-body p { font-size: 0.85rem; color: #64748b; line-height: 1.5; margin: 0; }
-.card-footer { padding-top: 12px; border-top: 1px solid #f1f5f9; display: flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 600; color: #2563eb; }
 
-/* --- MODAL STYLES (THIS IS THE FIX) --- */
+.card-body h4 {
+  font-size: 1.05rem;           /* a touch larger */
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 8px 0;
+}
+
+.card-body p {
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.card-footer {
+  padding-top: 12px;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+/* --- MODAL STYLES (unchanged) --- */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* Dark backdrop */
-  backdrop-filter: blur(4px); /* Blur effect */
-  z-index: 9999; /* Ensure it's on top of everything */
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,8 +146,8 @@
 .center-modal {
   background: white;
   width: 90%;
-  max-width: 550px; /* Fixed readable width */
-  border-radius: 20px; /* Smooth corners */
+  max-width: 550px;
+  border-radius: 20px;
   padding: 32px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   animation: scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -92,6 +186,10 @@
   transition: all 0.2s;
 }
 
+
+.section-header-strip{
+margin-top:20px;
+}
 .close-btn:hover {
   background: #e2e8f0;
   color: #0f172a;
@@ -166,3 +264,53 @@
 /* Animations */
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes scaleIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+/* =========================================
+   MOBILE RESPONSIVE OVERRIDES (Add to bottom of EarlyWarningStrip.css)
+   ========================================= */
+@media (max-width: 640px) {
+  /* 1. Fix Container Width & Padding */
+  .warning-grid-container {
+    max-width: 100%;
+    width: 100%;
+    padding: 0 16px; /* Add side padding */
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  /* 2. Stack Rows Vertically */
+  .row-1,
+  .row-2 {
+    display: flex;
+    flex-direction: column; /* Force vertical stack */
+    width: 100%;
+    gap: 16px;
+    margin-top: 0; /* Remove extra top margin from desktop */
+  }
+
+  /* 3. Force Full Width Cards */
+  .warning-card,
+  .row-2 .warning-card {
+    width: 100% !important; /* Override desktop calc width */
+    flex-grow: 1;
+    min-height: auto;
+    padding: 20px;
+  }
+
+  /* 4. Adjust Modal for Mobile */
+  .center-modal {
+    width: 95%;
+    max-height: 85vh;
+    padding: 20px;
+  }
+
+  .primary-modal-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .warning-title {
+    font-size: 22px;
+    margin-top: 24px;
+  }
+}
