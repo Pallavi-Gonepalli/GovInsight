@@ -1,0 +1,54 @@
+/* --- Chart Card Controls --- */
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.chart-controls { display: flex; gap: 4px; background: #f1f5f9; padding: 2px; border-radius: 6px; }
+.control-pill { border: none; background: none; font-size: 0.75rem; padding: 4px 12px; border-radius: 4px; cursor: pointer; color: #64748b; font-weight: 500; }
+.control-pill.active { background: white; color: #0f172a; box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+
+.chart-toggle { display: flex; background: #f1f5f9; border-radius: 6px; padding: 2px; }
+.chart-toggle button { border: none; background: none; padding: 4px 12px; font-size: 0.75rem; border-radius: 4px; cursor: pointer; color: #64748b; }
+.chart-toggle button.active { background: white; color: #2563eb; font-weight: 600; box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+
+/* --- Tables Styling --- */
+.table-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ensure it fills the grid cell */
+}
+
+.table-header { margin-bottom: 16px; font-weight: 600; color: #1e293b; }
+
+.table-container { flex: 1; overflow-x: auto; }
+
+.dashboard-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; text-align: left; }
+.dashboard-table th { padding: 10px 8px; border-bottom: 1px solid #e2e8f0; color: #64748b; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; }
+.dashboard-table td { padding: 12px 8px; border-bottom: 1px solid #f1f5f9; color: #334155; }
+.dashboard-table tr:last-child td { border-bottom: none; }
+
+.text-right { text-align: right; }
+.font-medium { font-weight: 500; color: #0f172a; }
+.text-red-600 { color: #dc2626; }
+.text-orange-600 { color: #d97706; }
+
+/* --- Risk Badges & Elements --- */
+.badge { font-size: 0.65rem; font-weight: 700; padding: 2px 6px; border-radius: 4px; }
+.badge.high { background: #fee2e2; color: #b91c1c; }
+.badge.medium { background: #ffedd5; color: #c2410c; }
+
+.score-bar { display: block; height: 6px; border-radius: 3px; }
+.link-text { color: #2563eb; cursor: pointer; font-weight: 500; }
+
+/* --- Tabbed Card --- */
+.tabs-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.tab-pill-group { display: flex; gap: 4px; background: #f1f5f9; padding: 2px; border-radius: 6px; }
+.tab-pill-group button { border: none; background: none; font-size: 0.75rem; padding: 4px 10px; border-radius: 4px; cursor: pointer; color: #64748b; }
+.tab-pill-group button.active { background: white; color: #0f172a; font-weight: 600; box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+.card-footer-note { font-size: 0.7rem; color: #94a3b8; margin-top: 12px; text-align: center; font-style: italic; }

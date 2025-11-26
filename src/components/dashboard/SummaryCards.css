@@ -1,0 +1,140 @@
+/* --- Container for Rows --- */
+.summary-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+
+/* --- Section Titles --- */
+.section-title {
+  font-size: 30px; /* Requested Size */
+  font-weight: 700;
+  color: var(--text-main, #0f172a);
+  margin-bottom: 24px;
+  text-align: center; /* Centered Alignment */
+  letter-spacing: -0.02em;
+}
+
+
+/* --- Row Layouts --- */
+.summary-row {
+  display: grid;
+  gap: 20px;
+}
+
+/* Row 1: 3 Equal Columns */
+.row-1 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Row 2: 2 Columns, Centered (using grid trick or flex) */
+.row-2 {
+  display: flex; /* Using Flex to easily center the 2 cards */
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Make row 2 cards match the width of row 1 cards roughly, or fixed width */
+.row-2 .summary-card {
+  width: calc(33.33% - 14px); /* Match width of 3-column grid items */
+  flex-grow: 0;
+}
+
+/* --- Card Design (Image 2 Style) --- */
+.summary-card {
+  border-radius: 16px;
+  padding: 24px;
+  color: white; /* White text for all content */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+              0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+}
+
+.summary-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+              0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* --- Text Section --- */
+.text-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 500;
+  opacity: 0.95;
+  letter-spacing: 0.01em;
+}
+
+.card-value {
+  font-size: 2.25rem; /* Big number like Image 2 */
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 4px 0;
+}
+
+.card-subtext {
+  font-size: 0.85rem;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+.trend-indicator {
+  font-weight: 600;
+  opacity: 1;
+}
+
+/* --- Icon Section --- */
+.icon-section {
+  opacity: 0.8; /* Subtle transparency for the icon */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 1024px) {
+  .row-1 {
+    grid-template-columns: repeat(2, 1fr); /* 2x2 grid on tablets */
+  }
+
+  .row-2 {
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Reset centering for simplicity */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Match grid above */
+  }
+
+  .row-2 .summary-card {
+    width: auto; /* Reset fixed width */
+  }
+
+  /* Handle the 5th card (orphan) in row 1 if needed, or just let it flow */
+}
+
+@media (max-width: 640px) {
+  .row-1, .row-2 {
+    grid-template-columns: 1fr; /* Stack everything on mobile */
+    display: grid;
+  }
+
+  .row-2 .summary-card {
+    width: auto;
+  }
+}

@@ -1,0 +1,251 @@
+.app-header {
+  background-color: var(--bg-white, #ffffff);
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 0 24px;
+  height: 64px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.header-container {
+  max-width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --- Brand Section --- */
+.brand-section {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* Better spacing */
+  min-width: 220px;
+}
+
+/* --- Brand Section --- */
+.brand-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 220px;
+}
+
+.logo {
+  height: 55px; /* Medium size */
+  width: auto;  /* Auto width to maintain aspect ratio */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer; /* Pointer to indicate it's clickable */
+  transition: transform 0.2s ease;
+
+  /* REMOVED: background-color, box-shadow, border-radius, padding */
+  background: transparent;
+}
+
+.logo:hover {
+  transform: scale(1.05); /* Subtle scale up on hover */
+}
+
+.logo img {
+  height: 100%;
+  width: auto; /* Maintain aspect ratio naturally */
+  object-fit: contain;
+  display: block;
+}
+
+
+.brand-info h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-main, #0f172a);
+}
+
+.brand-info p {
+  font-size: 0.75rem;
+  color: var(--text-secondary, #64748b);
+  font-weight: 500;
+}
+
+/* --- Navigation Tabs --- */
+.nav-tabs {
+  display: flex;
+  height: 100%;
+  gap: 8px;
+}
+
+.nav-tab {
+  background: transparent;
+  border: none;
+  height: 100%;
+  padding: 0 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary, #64748b);
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.nav-tab:hover {
+  color: var(--primary-blue, #2563eb);
+  background-color: #f8fafc;
+}
+
+.nav-tab.active {
+  color: var(--primary-blue, #2563eb);
+  font-weight: 600;
+}
+
+.nav-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-blue, #2563eb);
+}
+
+/* --- Right User Actions --- */
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-width: 220px;
+  justify-content: flex-end;
+}
+
+.notif-btn {
+  position: relative;
+  background: none;
+  border: none;
+  color: var(--text-secondary, #64748b);
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.notif-btn:hover {
+  background-color: var(--bg-body, #f1f5f9);
+  color: var(--text-main, #0f172a);
+}
+
+.badge-dot {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--danger, #ef4444);
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.user-profile:hover {
+  background-color: var(--bg-body, #f1f5f9);
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.2;
+}
+
+.user-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-main, #0f172a);
+}
+
+.user-role {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-secondary, #64748b);
+  background-color: #f1f5f9;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-top: 2px;
+  letter-spacing: 0.05em;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  background-color: #e2e8f0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary, #64748b);
+  border: 2px solid white;
+  box-shadow: 0 0 0 1px #e2e8f0;
+}
+
+/* --- Zoom Modal (Lightbox) --- */
+.logo-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85); /* Darker backdrop */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+  cursor: zoom-out;
+}
+
+.logo-modal-content {
+  background: white;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  animation: scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  max-width: 80vw;
+  max-height: 80vh;
+}
+
+.logo-modal-content img {
+  max-width: 100%;
+  max-height: 80vh;
+  display: block;
+  border-radius: 4px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .nav-tabs { display: none; }
+  .user-details { display: none; }
+}
